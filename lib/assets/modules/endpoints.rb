@@ -17,9 +17,7 @@ module Endpoint
                 else
                     ENV['INFURA_ENDPOINT_ROPSTEN'].nil? ? nil :  ENV['INFURA_ENDPOINT_ROPSTEN']    
             end
-        end
-
-       
+        end   
     end
 end
 
