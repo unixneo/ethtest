@@ -22,16 +22,4 @@ namespace :eth do
             end
         end
     end
-
-    desc "Update Wallet"
-    task :update_wallet, [:reserved]   => :environment do |t, args| 
-        flag = args[:test_network].nil? ? nil : args[:reserved]
-        begin
-            status = EthGem::Core.update_wallet
-            puts "Wallet Update Status: #{status}"
-        rescue  Exception => e 
-            puts "ETH ERROR: Update Wallet Failed: #{e}"
-        end
-    end
-
 end
