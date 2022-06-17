@@ -1,4 +1,4 @@
-### ethtest for chainstack
+### ethtest 
 
 ### steps
 
@@ -14,7 +14,7 @@ or from the console after bundle and cd into repo
 ```
 rails c
 require "#{Rails.root}/lib/assets/eth.rb"
-EthGem::Core.contract("hello_world","chainstack_ropsten")
+EthGem::Core.contract("hello_world","infura_ropsten")
 ```
 
 Running, you will get this error:
