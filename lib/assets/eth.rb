@@ -16,7 +16,7 @@ module EthGem
         return nil if file.nil?
         puts "Endpoint: #{Endpoint::Provider.get(network_provider)}"
         chain = Eth::Client.create Endpoint::Provider.get(network_provider)
-        gas_pump = 3
+        gas_pump = 2
         chain.gas_limit=70000
         gas_price =  chain.max_fee_per_gas
         chain.max_fee_per_gas = gas_price *  gas_pump
