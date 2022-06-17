@@ -1,0 +1,2 @@
+class Ethkey < ApplicationRecord
+end

@@ -1,0 +1,3 @@
+class Keychain < ApplicationRecord
+
+end
