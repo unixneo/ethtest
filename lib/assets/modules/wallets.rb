@@ -3,7 +3,7 @@ module Wallet
         def initialize
         end
 
-        def self.metamask_eth
+        def self.eth_wallet_address
            ENV['METAMASK_ETH_ADDRESS'].nil? ? nil : ENV['METAMASK_ETH_ADDRESS']
         end
     end

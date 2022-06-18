@@ -12,10 +12,10 @@ module EthGem
        end
 
        
-       def self.contract(file="hello_world",network_provider="alchemy_goerli")
+       def self.contract(file="hello_world")
         return nil if file.nil?
-        puts "Endpoint: #{Endpoint::Provider.get(network_provider)}"
-        chain = Eth::Client.create Endpoint::Provider.get(network_provider)
+        puts "Endpoint: #{Endpoint::Provider.get}"
+        chain = Eth::Client.create Endpoint::Provider.get
         gas_pump = 2
         chain.gas_limit=70000
         gas_price =  chain.max_fee_per_gas
@@ -25,7 +25,7 @@ module EthGem
         puts "PUMPED UP GAS: chain.max_fee_per_gas=#{chain.max_fee_per_gas} & chain.gas_limit=#{chain.gas_limit}"
         #chain.gas_limit = 230_420
         
-        addr = Eth::Address.new Wallet::Address.metamask_eth
+        addr = Eth::Address.new Wallet::Address.eth_wallet_address
         puts "METAMASK_ADDRESS: #{addr.to_s}"
         deposit_contract = Eth::Address.new  addr.to_s
         balance = (chain.get_balance deposit_contract).to_f

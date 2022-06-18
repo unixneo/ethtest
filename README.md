@@ -1,11 +1,25 @@
 ### ethtest 
 
+This is a public test repo for the `eth.rb' gem based on a larger private repo.
+
 ### steps
+
+Set your env vars:
+
+```shell
+ENV['BLOCKCHAIN_PROVIDER_ENDPOINT']
+ENV['PRIVATE_SIGNING_KEY']
+ENV['ETH_WALLET_ADDRESS']
+```
 
 ```
 clone https://github.com/unixneo/ethtest.git
 cd ethtest
 bundle
+```
+Then:
+
+```
 rake eth:hello_world
 ```
 
@@ -14,21 +28,5 @@ or from the console after bundle and cd into repo
 ```
 rails c
 require "#{Rails.root}/lib/assets/eth.rb"
-EthGem::Core.contract("hello_world","infura_ropsten")
+EthGem::Core.contract("hello_world")
 ```
-
-Running, you will get this error:
-
-```
-ETH ERROR: infura_ropsten contract deployment failed: insufficient funds for gas * price + value
-```
-
-If you increase gas fees enough, you will this "already known"  error:
-
-```
-{"jsonrpc"=>"2.0",
-"id"=>6,
-"error"=>{"code"=>-32000, "message"=>"already known"}}
-```
-
-I have been in this loop for days.... 
