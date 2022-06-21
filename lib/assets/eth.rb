@@ -14,18 +14,19 @@ module EthGem
        
        def self.contract(file="hello_world")
         return nil if file.nil?
+        addr = Eth::Address.new Wallet::Address.eth_wallet_address
         puts "Endpoint: #{Endpoint::Provider.get}"
         chain = Eth::Client.create Endpoint::Provider.get
-        gas_pump = 2
-        chain.gas_limit=70000
-        gas_price =  chain.max_fee_per_gas
-        chain.max_fee_per_gas = gas_price *  gas_pump
-        gas_limit=chain.gas_limit
-        chain.gas_limit = gas_limit *  gas_pump
-        puts "PUMPED UP GAS: chain.max_fee_per_gas=#{chain.max_fee_per_gas} & chain.gas_limit=#{chain.gas_limit}"
-        #chain.gas_limit = 230_420
+
+        # the follow three gas params are per Chainstack (E. K.)
+        chain.gas_limit = 200000 
+        chain.max_priority_fee_per_gas=0.3e11
+        chain.max_fee_per_gas=0.31e11
+        # end gas params
         
-        addr = Eth::Address.new Wallet::Address.eth_wallet_address
+        puts "GAS Params: chain.max_fee_per_gas=#{chain.max_fee_per_gas} & chain.gas_limit=#{chain.gas_limit} max_priority_fee_per_gas=#{chain.max_priority_fee_per_gas}"
+      
+        
         puts "METAMASK_ADDRESS: #{addr.to_s}"
         deposit_contract = Eth::Address.new  addr.to_s
         balance = (chain.get_balance deposit_contract).to_f
@@ -35,8 +36,6 @@ module EthGem
         puts "FILE: #{contract_file}"
         contract = Eth::Contract.from_file(file: contract_file)
         
-        
-        puts "Gas Max Fee: #{chain.eth_gas_price}"
         priv_key = ENV['PRIVATE_SIGNING_KEY']
        
         key = Eth::Key.new priv:  priv_key 

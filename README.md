@@ -13,7 +13,7 @@ ENV['ETH_WALLET_ADDRESS']
 ```
 
 ```
-clone https://github.com/unixneo/ethtest.git
+git clone https://github.com/unixneo/ethtest.git
 cd ethtest
 bundle
 ```
