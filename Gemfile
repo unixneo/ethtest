@@ -8,8 +8,8 @@ gem "rails", "~> 7.0.3"
 
 gem 'ethereum.rb', git: "https://github.com/unixneo/ethereum.rb"
 gem 'ostruct'
-gem 'eth', git: "https://github.com/unixneo/eth.rb"
-#gem 'eth'
+#gem 'eth', git: "https://github.com/unixneo/eth.rb"
+gem 'eth'
 gem 'colorize'
 gem 'pluck_to_hash'
 

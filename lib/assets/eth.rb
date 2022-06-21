@@ -24,7 +24,7 @@ module EthGem
         chain.max_fee_per_gas=0.31e11
         # end gas params
         
-        puts "GAS Params: chain.max_fee_per_gas=#{chain.max_fee_per_gas} & chain.gas_limit=#{chain.gas_limit} max_priority_fee_per_gas=#{chain.max_priority_fee_per_gas}"
+        puts "GAS Params: chain.max_fee_per_gas=#{chain.max_fee_per_gas} chain.gas_limit=#{chain.gas_limit} max_priority_fee_per_gas=#{chain.max_priority_fee_per_gas}"
       
         
         puts "METAMASK_ADDRESS: #{addr.to_s}"
