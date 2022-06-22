@@ -38,11 +38,12 @@ module EthGem
         
         priv_key = ENV['PRIVATE_SIGNING_KEY']
        
-        key = Eth::Key.new priv:  priv_key 
+        key = Eth::Key.new priv:  priv_key
+        
+        
 
         tx_id = chain.deploy_and_wait(contract,sender_key:key)
-        results = chain.eth_get_transaction_by_hash tx_id 
-        puts results
+        puts tx_id 
        end
 
   end
